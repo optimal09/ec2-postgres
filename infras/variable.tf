@@ -7,7 +7,7 @@ variable "ami" {
 }
 
 variable "ssh_key_name" {
-  default = "my-ssh-key"
+  default = "workkey.pem"
 }
 
 variable "vpc_id" {
