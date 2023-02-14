@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket         = "worktest112"
-    key            = "network/terraform.tfstate2"
+    key            = "network2/terraform.tfstate"
     region         = "us-east-1"
   }
 }
