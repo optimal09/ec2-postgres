@@ -10,6 +10,8 @@ on:
   AWS_REGION: "us-east-2"
   AWS_ACCESS_KEY_ID : AKIAWMDXPXKELGDXDOE5
   AWS_SECRET_ACCESS_KEY : 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
+  POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
 jobs:
   terraform:
@@ -17,7 +19,6 @@ jobs:
     defaults:
       run:
         working-directory: ${{ env.TERRAFORM_DIR }}
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -25,7 +26,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: '1.1.4'
+          terraform_version: '1.3.8'
 
       - name: Terraform Init
         run: terraform init
@@ -35,9 +36,6 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        env:
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
       - name: Output Instance Public IP
         run: echo "Instance IP: $(terraform output instance_ip)"
