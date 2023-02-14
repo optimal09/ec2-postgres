@@ -6,10 +6,6 @@ variable "ami" {
   default = "ami-00eeedc4036573771" # Ubuntu 20.04 LTS
 }
 
-variable "ssh_key_name" {
-  default = "workkey.pem"
-}
-
 variable "vpc_id" {
   default = "vpc-0abeadba9e4b656a8"
 }
