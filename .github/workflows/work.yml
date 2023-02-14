@@ -38,7 +38,7 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: Output Instance Public IP
-        run: echo "Instance IP: $(terraform output instance_ip)"
+        run: echo "Instance IP:$(terraform output instance_ip)"
 
       - name: Output Postgres Connection String
-        run: echo "Connection String: postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@$(terraform output postgres_ip)/${{ secrets.POSTGRES_DATABASE }}"
+        run: echo "Connection String:postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@$(terraform output postgres_ip)/${{ secrets.POSTGRES_DATABASE }}"
