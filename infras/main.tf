@@ -3,7 +3,7 @@ resource "aws_instance" "instancepostgres" {
   ami           = var.ami
   instance_type = var.instance_type
   key_name      = var.ssh_key_name
-  vpc_security_group_ids = [aws_security_group.example.id]
+  vpc_security_group_ids = [aws_security_group.instancepostgres.id]
   subnet_id     = element(var.subnets, count.index)
   count         = length(var.subnets)
 
