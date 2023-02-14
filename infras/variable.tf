@@ -27,5 +27,5 @@ variable "primary_instance_private_ip" {
 }
 
 variable "backup_bucket_name" {
-  default = "my-backup-bucket"
+  default = "worktest112"
 }
