@@ -6,8 +6,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "worktest112"
-    key            = "network2/terraform.tfstate"
+    bucket         = var.backup_bucket_name
+    key            = "network/terraform.tfstate"
     region         = "us-east-1"
   }
 }
