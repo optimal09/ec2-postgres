@@ -10,3 +10,4 @@ resource "aws_instance" "instancepostgres" {
   tags = {
     Name = "${var.instance_name}-${count.index}"
   }
+}
